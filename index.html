@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Putatoe</title>
+   <meta name="description"
+      content="Putatoe Solutions Pvt. Ltd. is an Indian e-commerce company that provides a platform where consumer can reach to service providers at his convenience for best quality, price and deals.">
+   <meta name="keywords"
+      content="Putatoe, Putatoe.com, Putatoe Solutions, buy online, home delivery, recharge and bills payment, online shopping, best deals and offers, fashion, jewellery, mobile, laptop, home and kitchen appliances, building and construction, civil contractors, beauty products, sports, fitness and gym equipments, beauty products, home decoratives, handicrafts, furniture and supplies, medicines, courier services, lab instruments and supplies, electronics and electrical, chemicals and dyes, drugs and pharmaceuticals, industrial machines, graphic designer, web designer, interior decorator, legal services providers, finance, insurance, loan, education and training institutes, Vehicles, cleaning and hygiene, fabrics, engineering services, it developers, herbal and ayurvedic products,">
+   <meta name="author" content="Putatoe Solutions">
+
+   <link rel="icon" href="https://i.ibb.co/ctGstkw/logo.png" type="image/x-icon" />
+   <script src="https://apis.google.com/js/platform.js" async defer></script>
+   <!-- Css Styles -->
+   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+   <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+   <!-- owl carousel -->
+   <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css" />
+   <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css" />
+   <link rel="stylesheet" href="css/styles.css" type="text/css" />
+   <link rel="stylesheet" href="css/responsive.css" type="text/css" />
+   <link rel="stylesheet" href="css/owl.css" type="text/css" />
+   <link rel="stylesheet" href="css/cart.css" type="text/css" />
+   <script src="js/popper.js"></script>
+</head>
+
+<body onload="siteLoader(1);">
+   <div id="preloader">
+      <div class="loader" id="loader"></div>
+   </div>
+   <div id="overlay"></div>
+   <!-- Humberger Begin -->
+   <div class="humberger__menu__overlay"></div>
+   <div class="humberger__menu__wrapper p-0">
+      <!-- Profile and Login Signup -->
+      <div class="row humberger__login__profile ma-0">
+         <div class="col-3">
+            <img src="img/logo.png" alt="image">
+         </div>
+         <div class="col-9">
+            <div class="pa-0">
+               <h5 class="text-right" id="mobileLogin"></h5>
+               <h6>
+                  <i class="fa fa-map-marker mr-1"></i>
+                  <span id="mobileLocation"></span>
+                  <i class="fa fa-chevron-down ml-2" id="mobileLocation_change"></i>
+               </h6>
+            </div>
+         </div>
+      </div>
+      <div class="ham-nav-container">
+         <div class="ham-nav-category" id="ExploreServices"></div>
+         <div class="ham-nav-category-2" id="ham-nav-category-2"></div>
+      </div>
+   </div>
+   <!-- Humberger End -->
+   <!-- Header Section Begin -->
+   <header class="header sticky-top">
+      <!-- Login sidebar starts --->
+      <div class="login-sidebar">
+         <span class="close-login-sidebar">
+            <i class="fa fa-times" id="close_header_desktop_login"> </i>
+         </span>
+         <div id="loginbox">
+            <div class="form-group">
+               <input type="text" class="form-controll" placeholder="Enter mobile number or username"
+                  id="login_mobile_number" oninput="checkMobileNumber()">
+            </div>
+            <button class="btn submitbutton w-100" onclick="loginWithOTP()">LOGIN USING OTP</button>
+            <div class="form_separator"><span>OR</span></div>
+            <button class="btn submitbutton w-100" onclick="passwordLogin()">LOGIN USING PASSWORD</button>
+            <div class="form_separator"><span>OR</span></div>
+            <div class="row ma-0">
+               <div class="col-12 col-sm-12">
+                  <div id="googleLoginButton" class="current_location_div buttons">
+                     <button class="btn google_btn"><span class="fa fa-google"></span></button>
+                  </div>
+               </div>
+               <!-- <div class="col-6 col-sm-6">
+                     <div class="current_location_div buttons">
+                        <button class="btn fb_btn float-left" value="0" onclick="fbLogin(this.value)" id="fbLink">
+                        <span class="fa fa-facebook"></span></button>
+                     </div>
+                  </div> -->
+            </div>
+            <p class="text-center fo-12 mt-3">Not having an account?
+               <a href="Signup.html"><span class="bco fw-600">Create Account</span></a>
+            </p>
+         </div>
+      </div>
+      <!--- login sidebar ends --->
+      <!--- Location sidebar starts --->
+      <div class="location-sidebar">
+         <span class="close-location-sidebar">
+            <i class="fa fa-times" id="close-location-sidebar"></i>
+         </span>
+         <div class="current_location_div">
+            <button class="btn" onclick="LocateMe();">
+               <i class="fa fa-location-arrow"></i>Get current location
+            </button>
+         </div>
+         <input type="text" class="userlocation" placeholder="Search for area, street name...." autocomplete="off"
+            oninput="onPageSuggestions();" id="userlocation">
+         <div class="location_predictions" id="location_predictions"></div>
+         <div class="image-div">
+            <img src="img/logo.png" alt="image" />
+         </div>
+      </div>
+      <!--- Location sidebar ends --->
+      <!--- Notification section starts --->
+      <div class="notification-sidebar">
+         <div style="padding: 5px 45px;">
+            <span class="bco fo-16 fw-600">Notifications</span>
+            <span class="close-notification-sidebar w-100 fo-24 bco">
+               <i class="fa fa-times float-right mt-2" id="close_notification_section"></i>
+            </span>
+         </div>
+         <div id="notifications-mob-dropdown-content" class="bg-grey"></div>
+      </div>
+      <!--- Notification section ends --->
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-2 col-sm-3 col-lg-2">
+               <a class="brand-name ml-xl-5" href="index.html">PUTATOE</a>
+            </div>
+            <div class="col-0 col-sm-0 col-xl-2 pa-0 d-none d-xl-block">
+               <div class="desktop-user-location pa-0 mt-2" id="desktopLocation_div">
+                  <span id="desktopLocation" class="ml-4"></span>
+               </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-7 col-xl-4">
+               <div class="desktop-searchBar dropdown d-flex">
+                  <input placeholder="Search for products and brands" id="searchProducts" oninput="SearchProducts();"
+                     autocomplete="off" onfocus="SearchProducts();">
+                  <div class="nav-search-button" onclick="IconSearchProducts()">
+                     <i class="fa fa-search"></i>
+                  </div>
+                  <div class="desktop-autoSuggest dropdown-menu pt-0" id="desktop-suggestion"></div>
+               </div>
+            </div>
+            <div class="col-0 col-sm-0 col-xl-2 pt-1 d-none d-xl-flex">
+               <div>
+                  <a href="chat.html">
+                     <button class="btn pa-0 text-white">
+                        <i class="fa fa-comments mr-1"></i></button>
+                  </a>
+               </div>
+               <div class="dropdown ml-2 dropleft">
+                  <button class="btn pa-0 text-white" data-toggle="dropdown">
+                     <i class="fa fa-shopping-cart mr-3">
+                        <sup class="cart_count" id="cart_count"></sup>
+                     </i></button>
+                  <div class="dropdown-menu" id="cart-dropdown-content"></div>
+               </div>
+               <div class="dropdown ml-2 dropleft">
+                  <button class="btn pa-0 text-white mt-1" data-toggle="dropdown">
+                     <i class="fa fa-bell">
+                        <sup class="cart_count" id="noti_count"></sup>
+                     </i>
+                  </button>
+                  <div class="filledcart-dropdown dropdown-menu" style="width: 300px">
+                     <div class="filledcart-dropdown-section" id="notifications-dropdown-content"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-0 col-sm-0 col-xl-2 pa-0 account-div">
+               <div class="dropdown d-none d-xl-block" id="desktopLogin"></div>
+            </div>
+         </div>
+         <div class="humberger_notifications">
+            <i class="fa fa-bell" id="notification_section">
+               <sup class="cart_count" id="noti_count_mob"></sup>
+            </i>
+         </div>
+         <div class="humberger_cart">
+            <a href="cart.html"><i class="fa fa-shopping-cart"></i>
+               <sup class="cart_count" id="cart_count_mob"></sup></a>
+         </div>
+         <div class="humberger__open">
+            <i class="fa fa-bars"></i>
+         </div>
+      </div>
+   </header>
+   <!-- Header Section End -->
+   <div id="notification-area"></div>
+   <div class="d-none d-xl-block sideBarResponsive reduceWidth" id="putatoe-sidebar-services"></div>
+   <main>
+      <div class="container-fluid pa-0">
+         <div class="row ma-0 category-topbar pr-0 p-95 text-white d-none d-xl-flex" id="category-topbar"></div>
+         <div class="p-95 p-25 pt-1" id="category-topbar-mobile"></div>
+         <div id="serviceUnavailable">
+            <div>
+               <img src="img/sad-logo.png" alt="image">
+            </div>
+            <h6 class="text-center mb-5">SORRY NO SERVICE AVAILABLE IN YOUR LOCATION</h6>
+         </div>
+         <div id="serviceAvailable" class="p-95 p-25 pt-2">
+            <!--Top most banner starts -->
+            <div class="carousel slide" data-ride="carousel" id="banners"></div>
+            <!--Top deals haeding starts -->
+            <div id="popular_products_section"></div>
+            <!--Top deals slider -->
+            <div class="owl-carousel bg-white" id="popular_products"></div>
+            <!--Top deals for construction haeding starts -->
+            <div id="popular_products_construction_section"></div>
+            <!--Top deals for construction slider -->
+            <div class="owl-carousel bg-white" id="popular_products_construction"></div>
+
+            <!--small banners desktop -->
+            <div class="row ma-0 mt-2 d-none d-sm-flex" id="category-banner-grid"></div>
+            <!--small banners mobile -->
+            <div class="carousel slide d-block d-sm-none" data-ride="carousel" id="mobile-carousel-1"></div>
+            <!--Bestsellers heading -->
+            <div id="popular_sellers_Construction_section"></div>
+            <!--Bestsellers slider -->
+            <div class="owl-carousel bg-white" id="popular_Construction_sellers"></div>
+            <!--Bestsellers heading -->
+            <div id="popular_sellers_section"></div>
+            <!--Bestsellers slider -->
+            <div class="owl-carousel bg-white" id="popular_sellers"></div>
+
+            <!--small banners desktop -->
+            <div class="row ma-0 mt-2 d-none d-sm-flex" id="category-banner-grid2"></div>
+            <!--small banners mobile -->
+            <div class="carousel slide d-block d-sm-none" data-ride="carousel" id="mobile-carousel-2"></div>
+            <!--services heading -->
+            <div id="popular_subservices_heading"></div>
+            <!--services section -->
+            <div id="main_services"></div>
+         </div>
+      </div>
+      <!-- modal for g-signin extra details --->
+      <div class="modal fade" id="GoogleSignUp" role="dialog" data-backdrop="static" data-keyboard="false">
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+               <div class="modal-body">
+                  <button type="button" class="close bco" data-dismiss="modal">&times;</button>
+                  <div class="row ma-0">
+                     <div class="col-md-12">
+                        <div class="contact_form">
+                           <p>You may skip the below details and sign up.</p>
+                           <div class="row">
+                              <div class="col-12 col-sm-12">
+                                 <div class="form-group">
+                                    <input type="text" class="form-controll" placeholder="First name" id="f_name">
+                                    <label class="thoughts f_nameEdit"></label>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-12">
+                                 <div class="form-group">
+                                    <input type="text" class="form-controll" placeholder="Last name" id="l_name">
+                                    <label class="thoughts l_nameEdit"></label>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-12">
+                                 <div class="form-group">
+                                    <input type="number" oninput="this.value = this.value.slice(0,10);"
+                                       class="form-controll" placeholder="Mobile Number" id="gmobnumber">
+                                    <label class="thoughts gmobEdit"></label>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-12">
+                                 <div class="form-group">
+                                    <input type="text" class="form-controll" placeholder="Referral code(Optional)"
+                                       id="grefercode">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="submitbutton-section mt-4">
+                              <button id="GoogleSignUpButton" class="btn submitbutton">SIGNUP</button>
+                              <button class="btn float-right bco fo-12 fw-600" data-dismiss="modal"
+                                 onclick="reloadPage()">SKIP</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end modal for g-signin extra details --->
+      <!-- modal  for otp -->
+      <div class="modal fade" id="loginOTP" role="dialog" data-backdrop="static" data-keyboard="false">
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+               <div class="modal-body">
+                  <button type="button" class="close bco" data-dismiss="modal">&times;</button>
+                  <div class="text-center">
+                     <img src="img/login/OTP.png" class="w-80" alt="image">
+                     <div class="fo-18 bco fw-600">VERIFY WITH OTP</div>
+                     <div class="mt-2 fo-12 fw-600" id="otpSentTo"></div>
+                     <div class="text-danger mt-2 fo-12 fw-600" id="otpStatus"></div>
+                     <form onsubmit="return false" class="mt-3">
+                        <div class="form-group fetch_results">
+                           <input class="digit text-center" autocomplete="off" type="number"
+                              oninput="this.value = this.value.slice(0,1);" id="otp_val1" maxLength="1" size="1"
+                              pattern="[0-9]{1}" onfocus="this.value=''" onkeyup="clickEvent(this,'otp_val2')">
+                           <input class="digit text-center" autocomplete="off" type="number"
+                              oninput="this.value = this.value.slice(0,1);" id="otp_val2" maxLength="1" size="1"
+                              pattern="[0-9]{1}" onfocus="this.value=''" onkeyup="clickEvent(this,'otp_val3')">
+                           <input class="digit text-center" autocomplete="off" type="number"
+                              oninput="this.value = this.value.slice(0,1);" id="otp_val3" maxLength="1" size="1"
+                              pattern="[0-9]{1}" onfocus="this.value=''" onkeyup="clickEvent(this,'otp_val4')">
+                           <input class="digit text-center" autocomplete="off" type="number"
+                              oninput="this.value = this.value.slice(0,1);" id="otp_val4" maxLength="1" size="1"
+                              pattern="[0-9]{1}" onfocus="this.value=''">
+                        </div>
+                     </form>
+                     <button class="btn blue-buttons smalll" onclick="register();">VERIFY OTP</button>
+                     <div class="fo-13 txtco fw-600 mt-2 cursorPointer" data-dismiss="modal" onclick="loginWithOTP()">
+                        Resend OTP</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- modal  for password -->
+      <div class="modal fade" id="loginPassword" role="dialog" data-backdrop="static" data-keyboard="false">
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+               <div class="modal-body">
+                  <button type="button" class="close bco" data-dismiss="modal">&times;</button>
+                  <div class="text-center">
+                     <img src="img/login/OTP.png" class="w-80" alt="image">
+                     <div class="text-danger mt-2 fo-12 fw-600" id="loginStatus"></div>
+                     <input id="login_password" type="password" class="form-controll mt-2"
+                        placeholder="Enter Password" />
+                     <button class="btn blue-buttons smalll mt-4" onclick="loginWithPassword();">LOGIN</button>
+                     <div class="fo-13 bco fw-600 mt-2 cursorPointer" data-dismiss="modal" data-toggle="modal"
+                        data-target="#forgotPassword">Forgot Password?</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--- Modal for forgot password -->
+      <!-- modal  for password -->
+      <div class="modal fade" id="forgotPassword" role="dialog" data-backdrop="static" data-keyboard="false">
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+               <div class="modal-body">
+                  <button type="button" class="close bco" data-dismiss="modal">&times;</button>
+                  <div class="text-center">
+                     <img src="img/login/OTP.png" class="w-80" alt="image">
+                     <div class="text-danger mt-2 fo-12 fw-600" id="forget_mobile_status"></div>
+                     <input id="forget_mobile" class="form-controll mt-2" placeholder="Enter mobile number"
+                        type="number" oninput="this.value = this.value.slice(0,10);"
+                        onkeyup="fetchOnEnter(this, event);" />
+                     <button type="button" class="btn blue-buttons smalll mt-4" id="forgetPasswordTrigger1"
+                        onclick="forgetPassword(this.id);">GET OTP</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- modal  for password -->
+      <div class="modal fade" id="changePassword" role="dialog" data-backdrop="static" data-keyboard="false">
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+               <div class="modal-body">
+                  <button type="button" class="close bco" data-dismiss="modal">&times;</button>
+                  <div class="text-center">
+                     <img src="img/login/OTP.png" class="w-80" alt="image">
+                     <div class="text-danger mt-2 fo-12 fw-600" id="change_mobile_status"></div>
+                     <input id="forgot_otp" class="form-controll mt-2"
+                        placeholder="Enter OTP sent to your mobile number" type="number"
+                        oninput="this.value = this.value.slice(0,4);" />
+                     <input id="new_password" class="form-controll mt-3" placeholder="Enter new password"
+                        type="password" />
+                     <input id="confirm_new_password" class="form-controll mt-3" placeholder="Confirm new password"
+                        type="password" />
+                     <button class="btn blue-buttons smalll mt-4 w-100" onclick="resetPassword(this);">SAVE NEW
+                        PASSWORD</button>
+                     <button class="btn fo-13 bco fw-600 mt-2" id="forgetPasswordTrigger2"
+                        onclick="forgetPassword(this.id);" type="button">Resend OTP?</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+   <!-- Footer options for mobile -->
+   <div class="container-fluid d-block d-sm-none" id="mobileFixedFooter"></div>
+   <!-- Footer Section Begin -->
+   <footer class="footer spad mt-2">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-10 col-md-6 col-sm-6">
+               <div class="footer__about">
+                  <div class="footer__about__logo">
+                     <a href="./index.html">
+                        <img src="img/logo.png" alt="image" height="90" width="90" />
+                     </a>
+                  </div>
+                  <div class="footer__about__brand">
+                     <p>PUTATOE SOLUTIONS PVT. LTD.</p>
+                  </div>
+               </div>
+               <p class="text-white">233 Harahawa Phatak, Near SBI Bank, Gorakhpur, Uttar Pradesh - 273001</p>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6">
+               <div class="footer__widget">
+                  <h6>Useful Links</h6>
+                  <ul>
+                     <li><a href="about.html">About Us</a></li>
+                     <li><a href="contact-us.html">Contact Us</a></li>
+                     <li><a href="terms_and_conditions.html">Terms and Conditions</a></li>
+                  </ul>
+               </div>
+               <div class="footer__widget">
+                  <div class="footer__widget__social">
+                     <a href="https://www.facebook.com/putatoetechnologies"><i class="fa fa-facebook"></i></a>
+                     <a href="https://www.instagram.com/put.at.toe/"><i class="fa fa-instagram"></i></a>
+                     <a href="https://www.linkedin.com/company/putatoe/"><i class="fa fa-linkedin"></i></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <!-- Footer Section End -->
+   <!-- JS Plugins -->
+   <script src="js/jquery-3.6.0.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="owlcarousel/owl.carousel.min.js"></script>
+   <!-- Handlers -->
+   <script src="js/apis/urls.js" defer></script>
+   <script src="js/controllers/variable.js"></script>
+   <script src="js/controllers/pageHandlers.js"></script>
+   <script src="js/controllers/location.js"></script>
+   <script src="js/controllers/index.js"></script>
+   <script src="js/controllers/mybasket.js"></script>
+   <script src="js/controllers/login.js"></script>
+   <script src="js/controllers/search.js"></script>
+   <!-- Firebase analytics -->
+   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+   <script src="js/firebase.js"></script>
+</body>
+
+</html>
